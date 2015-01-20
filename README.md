@@ -19,7 +19,15 @@ function yourGulpPlugin() {
   });
 
   return through.obj(function(file, enc, cb) {
-    vinylBufferStream(file, cb);
+    vinylBufferStream(file, function(err, contents) {
+      if (err) {
+        self.emit('error', err);
+      } else {
+        file.contents = contents;
+        self.push(file);
+      }
+      cb();
+    });
   });
 }
 ```
@@ -88,7 +96,15 @@ function svgminPlugin(options) {
   });
 
   return through.obj(function(file, enc, cb) {
-    vinylBufferStream(file, cb);
+    vinylBufferStream(file, function(err, contents) {
+      if (err) {
+        self.emit('error', err);
+      } else {
+        file.contents = contents;
+        self.push(file);
+      }
+      cb();
+    });
   });
 }
 
