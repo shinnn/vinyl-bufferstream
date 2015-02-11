@@ -20,8 +20,7 @@
     }
   ],
   "files": [
-    "index.js",
-    "LICENSE"
+    "index.js"
   ],
   "keywords": [
     "gulpfriendly",
@@ -35,16 +34,16 @@
     "helper"
   ],
   "dependencies": {
-    "bufferstreams": "0.0.2"
+    "bufferstreams": "1.0.1"
   },
   "devDependencies": {
-    "eslint": "^0.12.0",
+    "eslint": "^0.14.1",
     "istanbul": "^0.3.5",
     "istanbul-coveralls": "^1.0.1",
-    "jscs": "^1.10.0",
+    "jscs": "^1.11.2",
     "simple-bufferstream": "0.0.4",
-    "tap-spec": "^2.2.0",
-    "tape": "^3.4.0",
+    "tap-spec": "^2.2.1",
+    "tape": "^3.5.0",
     "vinyl": "^0.4.6"
   },
   "jscsConfig": {
