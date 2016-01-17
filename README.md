@@ -7,7 +7,7 @@
 [![Dependency Status](https://img.shields.io/david/shinnn/vinyl-bufferstream.svg?style=flat&label=deps)](https://david-dm.org/shinnn/vinyl-bufferstream)
 [![devDependency Status](https://img.shields.io/david/dev/shinnn/vinyl-bufferstream.svg?style=flat&label=devDeps)](https://david-dm.org/shinnn/vinyl-bufferstream#info=devDependencies)
 
-> Deal with [vinyl file](https://github.com/wearefractal/vinyl) contents, regardless of whether they are a Buffer or Stream
+Deal with [vinyl file](https://github.com/wearefractal/vinyl) contents, regardless of whether they are a Buffer or Stream
 
 ```javascript
 var through = require('through2');
@@ -60,7 +60,7 @@ The argument must be a function taking a [`Buffer`][buffer] and a callback funct
 *file*: `Object` ([vinyl file](https://github.com/wearefractal/vinyl#file) object)  
 *callback*: `Function`
 
-When [`file.contents`](https://github.com/wearefractal/vinyl#optionscontents) is a [`Buffer`][buffer], it will call *transformFunction*, passing file.contents as the first argument.
+When `file.contents` is a [`Buffer`][buffer], it will call *transformFunction*, passing file.contents as the first argument.
 
 When `file.contents` is a [`Stream`][buffer], it will call *transformFunction*, passing the buffered `file.contents` as the first argument.
 
