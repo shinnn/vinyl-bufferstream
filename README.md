@@ -7,7 +7,7 @@
 [![Dependency Status](https://img.shields.io/david/shinnn/vinyl-bufferstream.svg?style=flat&label=deps)](https://david-dm.org/shinnn/vinyl-bufferstream)
 [![devDependency Status](https://img.shields.io/david/dev/shinnn/vinyl-bufferstream.svg?style=flat&label=devDeps)](https://david-dm.org/shinnn/vinyl-bufferstream#info=devDependencies)
 
-Deal with [vinyl file](https://github.com/wearefractal/vinyl) contents, regardless of whether it is Buffer/Stream
+> Deal with [vinyl file](https://github.com/wearefractal/vinyl) contents, regardless of whether they are a Buffer or Stream
 
 ```javascript
 var through = require('through2');
@@ -53,29 +53,29 @@ var VinylBufferStream = require('vinyl-bufferstream');
 *transformFunction*: `Function`  
 Return: `Function`
 
-The argument must be a function taking a [`Buffer`][buffer] and a callback function as its first and second argument, which calls the callback function with passing [Node](http://nodejs.org/)-style callback arguments (`error, result`).
+The argument must be a function taking a [`Buffer`][buffer] and a callback function as it's first and second arguments, respectively. The callback will be invoked with [Node](http://nodejs.org/)-style callback arguments (`error, result`), where `result` is the buffered `file.contents`.
 
 #### vinylBufferStream(*file*, *callback*)
 
 *file*: `Object` ([vinyl file](https://github.com/wearefractal/vinyl#file) object)  
 *callback*: `Function`
 
-When the [`file.contents`](https://github.com/wearefractal/vinyl#optionscontents) is a [`Buffer`][buffer], it will call the *transformFunction* with passing file.contents to the first argument.
+When [`file.contents`](https://github.com/wearefractal/vinyl#optionscontents) is a [`Buffer`][buffer], it will call *transformFunction*, passing file.contents as the first argument.
 
-When the `file.contents` is a [`Stream`][buffer], it will call the *transformFunction* with passing the buffered stream of file.contents to the first argument.
+When `file.contents` is a [`Stream`][buffer], it will call *transformFunction*, passing the buffered `file.contents` as the first argument.
 
-When the `file.contents` is a [`Stream`][stream], it won't call the *transformFunction*.
+When `file.contents` is`null`, it won't call the *transformFunction*.
 
 ##### callback(err, contents)
 
 *error*: `Error` or `null`  
 *contents*: [`Buffer`][buffer] or [`Stream`][stream]
 
-When the `file.contents` is a [`Buffer`][buffer], *contents* will be a result that *transformFunction* produces.
+When `file.contents` is a [`Buffer`][buffer], *contents* will be a result that *transformFunction* produces.
 
-When the `file.contents` is a [`Stream`][stream], *contents* will be a stream that emits a data *transformFunction* produces.
+When `file.contents` is a [`Stream`][stream], *contents* will be a stream that emits the data *transformFunction* produces.
 
-When the `file.contents` is `null`, *contents* will be `null`.
+When `file.contents` is `null`, *contents* will be `null`.
 
 ```javascript
 var gulp = require('gulp');
@@ -123,9 +123,9 @@ gulp.task('stream', function() {
 
 ## License
 
-Copyright (c) 2014 - 2015 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2014 - 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).
 
-[buffer]: https://iojs.org/api/buffer.html#buffer_class_buffer
-[stream]: https://iojs.org/api/stream.html
+[buffer]: https://nodejs.org/api/buffer.html
+[stream]: https://nodejs.org/api/stream.html
