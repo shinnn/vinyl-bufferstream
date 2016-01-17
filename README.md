@@ -60,7 +60,7 @@ The argument must be a function taking a [`Buffer`][buffer] and a callback funct
 *file*: `Object` ([vinyl file](https://github.com/wearefractal/vinyl#file) object)  
 *callback*: `Function`
 
-When [`file.contents`](https://github.com/wearefractal/vinyl#optionscontents) is a [`Buffer`][buffer], it will call *transformFunction*, passing file.contents as the first argument.
+When `file.contents` is a [`Buffer`][buffer], it will call *transformFunction*, passing file.contents as the first argument.
 
 When `file.contents` is a [`Stream`][buffer], it will call *transformFunction*, passing the buffered `file.contents` as the first argument.
 
