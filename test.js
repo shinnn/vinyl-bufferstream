@@ -1,7 +1,7 @@
 /* eslint new-cap:0 no-new:0 */
 'use strict';
 
-var bufferToStream = require('simple-bufferstream');
+var sbuff = require('simple-bufferstream');
 var File = require('vinyl');
 var test = require('tape');
 var VinylBufferStream = require('./');
@@ -25,7 +25,7 @@ test('VinylBufferStream()', function(t) {
     function() {
       new VinylBufferStream('foo');
     },
-    /TypeError.*foo is not a function/,
+    /TypeError.*expects a function/,
     'should throw a type error when the first argument is not a function.'
   );
 
@@ -33,7 +33,7 @@ test('VinylBufferStream()', function(t) {
     function() {
       new VinylBufferStream();
     },
-    /TypeError.*must be a function\./,
+    /TypeError.*expects a function/,
     'should throw a type error when it takes no arguments.'
   );
 });
@@ -68,7 +68,7 @@ test('instance of VinylBufferStream()', function(t) {
     );
   });
 
-  vinylBufferStream(new File({contents: bufferToStream('a')}), function(err, contents) {
+  vinylBufferStream(new File({contents: sbuff('a')}), function(err, contents) {
     t.strictEqual(err, null, 'should accept vinyl file in stream mode.');
     contents.on('data', function(data) {
       t.equal(
@@ -79,7 +79,7 @@ test('instance of VinylBufferStream()', function(t) {
     });
   });
 
-  vinylBufferStream(new File({contents: bufferToStream('error')}), function(err, contents) {
+  vinylBufferStream(new File({contents: sbuff('error')}), function(err, contents) {
     t.deepEqual(
       [err, contents],
       [tmpError, undefined],
@@ -97,7 +97,7 @@ test('instance of VinylBufferStream()', function(t) {
 
   t.throws(
     vinylBufferStream.bind(null, new File(), 'foo'),
-    /TypeError.*foo is not a function.*must be a function\./,
+    /TypeError.*must be a function\./,
     'should throw a type error when the second argument is not a function.'
   );
 });

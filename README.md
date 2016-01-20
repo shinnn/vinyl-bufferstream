@@ -7,7 +7,7 @@
 [![Dependency Status](https://img.shields.io/david/shinnn/vinyl-bufferstream.svg?style=flat&label=deps)](https://david-dm.org/shinnn/vinyl-bufferstream)
 [![devDependency Status](https://img.shields.io/david/dev/shinnn/vinyl-bufferstream.svg?style=flat&label=devDeps)](https://david-dm.org/shinnn/vinyl-bufferstream#info=devDependencies)
 
-> Deal with [vinyl file](https://github.com/wearefractal/vinyl) contents, regardless of whether they are a Buffer or Stream
+Deal with [vinyl file](https://github.com/wearefractal/vinyl) contents, regardless of whether they are a Buffer or Stream
 
 ```javascript
 var through = require('through2');
