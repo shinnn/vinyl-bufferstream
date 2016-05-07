@@ -19,6 +19,7 @@ function yourGulpPlugin() {
   });
 
   return through.obj(function(file, enc, cb) {
+    var self = this;
     vinylBufferStream(file, function(err, contents) {
       if (err) {
         self.emit('error', err);
